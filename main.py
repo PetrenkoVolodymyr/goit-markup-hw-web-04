@@ -36,6 +36,7 @@ def save_data_from_form(data):
         current_time=datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
         with open('storage/data.json', 'r', encoding='utf-8') as file:
             all_data = json.loads(file.read())
+        print(f'BEFORE: {all_data}')
         parse_dict = {key: value for key, value in [el.split('=') for el in parse_data.split('&')]}
         all_data[current_time]=parse_dict
         with open('storage/data.json', 'w', encoding='utf-8') as file:
